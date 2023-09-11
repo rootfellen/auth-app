@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import useStore from "./store";
 import LoginForm from "./components/LoginForm";
 import UserService from "./services/UserService";
+import "./styles/main.css";
 
 function App() {
   const { isAuth, isLoading, user, login, logout, checkAuth } = useStore();
@@ -32,27 +33,48 @@ function App() {
 
   if (!isAuth) {
     return (
-      <div>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          gap: "2rem",
+        }}
+      >
         <LoginForm />
-        <button onClick={getUsers}>Get all users</button>
+        <button className="users_btn" onClick={getUsers}>
+          Get all users
+        </button>
       </div>
     );
   }
 
   return (
     <div>
-      <h1>{isAuth ? `User is authorized ${user.email}` : "Log in"}</h1>
-      <h1 style={user.isActivated ? { color: "green" } : { color: "red" }}>
+      <h1 style={{ color: "#fff" }}>
+        {isAuth ? `User is authorized ${user.email}` : "Log in"}
+      </h1>
+      <h1 style={user.isActivated ? { color: "aquamarine" } : { color: "red" }}>
         {user.isActivated
           ? "Account is activated"
           : "Please activate your account"}
       </h1>
-      <button onClick={logout}>Logout</button>
+      <button className="logout_btn" onClick={logout}>
+        Logout
+      </button>
       <div>
-        <button onClick={getUsers}>Get users</button>
+        <button
+          className="users_btn"
+          style={isAuth ? { marginTop: "1rem" } : {}}
+          onClick={getUsers}
+        >
+          Get users
+        </button>
       </div>
       {users.map((user) => (
-        <div key={user.email}>{user.email}</div>
+        <div style={{ color: "#fff", marginTop: "1rem" }} key={user.email}>
+          {user.email}
+        </div>
       ))}
     </div>
   );

@@ -1,0 +1,30 @@
+html,
+body,
+:root {
+  height: 100%;
+}
+
+body {
+  background: linear-gradient(rgb(55, 65, 81), rgb(17, 24, 39), rgb(0, 0, 0));
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.users_btn,
+.logout_btn {
+  all: unset;
+  background-color: aquamarine;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+}
+.logout_btn {
+  background-color: red;
+  color: #fff;
+}
+.users_btn:hover {
+  background-color: beige;
+  color: #000;
+}
