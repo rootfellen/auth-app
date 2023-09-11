@@ -1,16 +1,12 @@
 import React, { useEffect, useState } from "react";
 import useStore from "./store";
-import LoginForm from "./components/LoginForm";
+import LoginForm from "./components/LoginForm/LoginForm";
 import UserService from "./services/UserService";
 import "./styles/main.css";
 
 function App() {
-  const { isAuth, isLoading, user, login, logout, checkAuth } = useStore();
+  const { isAuth, isLoading, user, logout, checkAuth } = useStore();
   const [users, setUsers] = useState([]);
-
-  const { initAuth } = useStore();
-
-  console.log(isAuth, isLoading, user, login, logout);
 
   useEffect(() => {
     if (localStorage.getItem("token")) {
