@@ -2,7 +2,7 @@
 
 <p align="center">
   <p align="center">Simple Full-stack React Application</p>
-  <span>made for Bay Valley Tech students</span>
+  <span align="center">made for Bay Valley Tech students</span>
 </p>
 
 ## How to install
